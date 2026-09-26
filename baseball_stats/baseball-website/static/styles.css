@@ -1,0 +1,434 @@
+/* static/css/styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header{
+    background-color: #062b7a;
+    color: #ffffff;
+    text-align: center;
+    padding: .4em 0;
+    box-shadow: 0 2px 4px rgba(204, 41, 41, 0.1);
+}
+
+/*Baseball-viz title*/
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0.5em 0 0;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+    cursor: pointer; /* Add cursor pointer for page tabs */
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+}
+
+nav ul li a:hover {
+    color: #ffa500; /* Change link color on hover */
+    background-color: #060141;
+    
+}
+
+/* Styles for the active navigation link to show page currently on*/
+nav ul li a.active {
+    background-color: #ffffff; /* Change this to your desired background color */
+    color: #062b7a; /* Change this to your desired text color */
+    padding: 10px 15px; /* Adjust padding as needed */
+    border-radius: 5px; /* Adjust border radius as needed */
+    text-decoration: none;
+}
+
+/*MAIN BACKGROUND EDITING - PAGE SIZE, ETC*/
+main {
+    position: relative;
+    z-index: 0; /*Elements with a higher z-index are in front of elements with a lower z-index. Here, it's used to ensure the main element appears above the background video (which has a z-index of -1).*/
+    padding: 5em;
+    margin: 20px auto;
+    max-width: 1500px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/*display: flex; - this caused dashboards to mushed and dishoveled in all pages enables flexbox layout for its children. Flexbox allows for more efficient way to lay out, align, */ 
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh; /* Changed from height to min-height /* */
+    /*text-align: center;*/
+}
+
+/* ONLY FOR HOMEPAGE*/
+.home-main {
+    /*display: none;  Hide the main element */
+    height: 00vh; /* Reduce height for home page */
+    max-height: 100px;
+    max-width: 1800px; /* Set maximum width */
+    width: 50%; /* Set width to 90% of the viewport width */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+h2, h3 {
+    color: #0f0569;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
+/* Specific Styling for Embedded Iframes */
+.iframe-container {
+    margin-bottom: 2em;
+}
+
+.iframe-container h3 {
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+}
+
+iframe {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5em 0;
+    }
+
+    main {
+        padding: 1em;
+        margin: 10px;
+    }
+
+    .iframe-container {
+        margin-bottom: 1.5em;
+    }
+
+    header, footer {
+        padding: 1em 0;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+}
+
+/* Enhanced link styling */
+
+a:hover {
+    color: #ff5100;
+    text-decoration: underline;
+}
+/* Additional Styles for better visual elements */
+.container {
+    padding: 1em; /* Adjusted padding */
+    margin: 1em 0;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    margin-top: 0;
+}
+
+/* VIDEO EDITING*/
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+/* container removes black screen bars and blends to background color*/
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%; /* 16:9 aspect ratio (9/16 * 100 = 56.25) */
+    max-width: 177.78vh; /* 16:9 aspect ratio (16/9 * 100 = 177.78) change to higher when video isn't cropped*/
+    max-height: 100vh;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+
+/* REMOVE THIS BEFORE SUBMISSION */
+/* Hero Section */ /* Add your background image here url('/static/images/baseball-background.jpg') */
+.hero {
+    background-image: url('https://www.shutterstock.com/video/clip-1069164031-baseball-player-hitting-ball-bat-on-professional'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    padding: 20px; /*100px 20px*/
+    color: #ffffff;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgb(136, 10, 10); /* red */
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 0.1em;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
+}
+
+.cta-button {
+    background-color: #070646;
+    color: #ffffff;
+    text-decoration:double; /*none*/
+    padding: .9em 1.9em;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #323d47;
+}
+
+/* Animation and Transitions */
+iframe {
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+iframe:hover {
+    transform: scale(1.005);
+    opacity: 1;
+}
+
+button, .cta-button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, .cta-button:hover {
+    transform: scale(1.05);
+}
+
+a {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #ffa500;
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+/* Custom Fonts and Typography */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header h1, .hero h1 {
+    font-family: 'Playball', cursive;
+}
+
+h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+/* Enhanced Footer Design - DEFAULT FOOTER DESIGN*/
+footer {
+    position: relative;
+    z-index: 2;
+    padding: 0.01em 0;
+    color: #ffffff;
+    text-align: center;
+    background-color: #003366;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    max-width: 100%; /* Ensure it spans the full width of the page */
+    margin: 0 auto;
+    z-index: 2;
+}
+
+/* formats naviagation links in footer */
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.footer-nav ul li {
+    margin: 0 1em;
+}
+
+.footer-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+    color: #ffa500;
+}
+
+/* Specific styles for the main page footer */
+.main-page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2; /* Ensure it stays above the video */
+    background: #003366; /* Match your footer background color */
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+}
+/* top navigation button */
+
+/* previous, next navigation buttons */
+.navigation-buttons {
+    display: flex;
+    justify-content: right;
+    z-index: 3;
+}
+
+.nav-button {
+    background-color: #062b7a;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 15px;
+    margin: 0 10px;
+    display: inline-block;
+    border: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+/* General Button Styles */
+.nav-button, nav ul li a {
+    cursor: pointer; /* Add cursor pointer for all buttons and tabs */
+    
+}
+.nav-button:hover {
+    background-color: #060141;
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    background-color: #062b7a; /* Match button background color */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+
+}
+#scrollToTopBtn:hover {
+    background-color: #00509e; /* Hover background color */
+}
+
+/* Team Section */
+.team {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.team-member {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 1em;
+    padding: 1em;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-photo {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 1em;
+}
+
+.team-member h3 {
+    margin: 0.5em 0;
+    font-family: 'Playball', cursive;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.team-member p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    margin: 0.5em 0;
+}
+
+.team-member a {
+    display: inline-block;
+    margin-top: 1em;
+    text-decoration: none;
+    color: #ffa500;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.team-member a:hover {
+    color: #ff8500;
+}

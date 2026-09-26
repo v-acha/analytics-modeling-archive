@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Baseball Viz - Pitching Stats vs. Runs Allowed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playball&display=swap" rel="stylesheet"> <!--Custom Fonts and Typography-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body>
+    <header>
+        <h1>Baseball Viz</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ base_url }}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="{{ base_url }}run-expectancy" class="{% if request.path == '/run-expectancy' %}active{% endif %}">Run Expectancy</a></li>
+                <li><a href="{{ base_url }}batting_average" class="{% if request.path == '/batting_average' %}active{% endif %}">Batting Average</a></li>
+                <li><a href="{{ base_url }}offensive-stats" class="{% if request.path == '/offensive-stats' %}active{% endif %}">Offensive Stats</a></li>
+                <li><a href="{{ base_url }}pitching-stats" class="{% if request.path == '/pitching-stats' %}active{% endif %}">Pitching Stats</a></li>
+                <li><a href="{{ base_url }}fastball-velocity" class="{% if request.path == '/fastball-velocity' %}active{% endif %}">Fastball Velocity</a></li>
+                <li><a href="{{ base_url }}payroll-wins" class="{% if request.path == '/payroll-wins' %}active{% endif %}">Payroll and Wins</a></li>
+                <li><a href="{{ base_url }}knowledge-base" class="{% if request.path == '/knowledge-base' %}active{% endif %}">Understanding Baseball</a></li>
+                <li><a href="{{ base_url }}contact" class="{% if request.path == '/contact' %}active{% endif %}">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <!-- Navigation buttons -->
+            <div class="navigation-buttons">
+                <a href="#" id="prev-button" class="nav-button">Previous</a>
+                <a href="#" id="next-button" class="nav-button">Next</a>
+            </div>
+        <section>
+            <h2>Pitching Statistics</h2>
+            <div>
+                <p>These visualization explore how different pitching statistics, such as Strikeout to Walk Ratio (K/BB) and WHIP (Walks + Hits per Inning Pitched), relate to the number of runs allowed by a team.</p>
+                
+                <h3>Pitching Stats vs. Runs Allowed</h3>
+                <p>This image comprises three scatter plots that examine the relationship between various pitching statistics and the number of runs allowed by teams from 2015 to 2023. The left chart compares the strikeout to walk ratio (K/BB) with the number of runs allowed, with the y-axis representing runs allowed and the x-axis depicting the K/BB ratio. The middle chart evaluates the relationship between walks plus hits per inning pitched (WHIP) and runs allowed, again using the y-axis for runs allowed and the x-axis for WHIP. The right chart assesses the correlation between earned run average (ERA) and runs allowed, with the y-axis indicating runs allowed and the x-axis showing ERA. Each point on the scatter plots represents a team, color-coded by year, highlighting trends and correlations across different seasons. These charts collectively provide valuable insights into how specific pitching metrics impact the defensive performance of teams, particularly in limiting the number of runs conceded.</p>
+                <!-- Embed Altair and Tableau visualizations using iframes -->
+                <div class="iframe-container">
+                    <h3>Trend Charts</h3>
+                    <iframe src="embed/interactive_trend_charts" width="100%" height="600px" style="border: none;"></iframe>
+                </div>
+                <div class="iframe-container">
+                    <h3>Payroll vs Winning Percentage</h3>
+                    <p>This scatter plot explores the relationship between team payroll and winning percentage across the years 2019, 2020, and 2021. The y-axis denotes the winning percentage of teams, while the x-axis represents the team payroll in millions of dollars. Data points are color-coded to distinguish between the years, with each point representing a team’s payroll and their corresponding winning percentage. The scatter plot reveals varying distributions, indicating that while there is some correlation between higher payrolls and winning percentages, it is not a direct relationship, suggesting that other factors also significantly influence a team’s success. This chart provides a comprehensive view of how financial investment in team payroll might affect winning outcomes in professional baseball.</p>
+                    <iframe src="embed/payroll_vs_winning_chart" width="100%" height="600px" style="border: none;"></iframe>
+                </div>
+                <div class="iframe-container">
+                    <h3>Strikeouts and Runs Scored Over Time</h3>
+                    <p>This image features two line charts that display the trends of strikeouts and runs scored from 2022 to 2024. The left chart illustrates the trend of strikeouts over time, with the y-axis representing the total number of strikeouts and the x-axis marking the years 2022, 2023, and 2024. There is a noticeable decline in the number of strikeouts over these years, indicating a decreasing trend. Similarly, the right chart shows the trend of runs scored over the same period, with the y-axis representing the total number of runs scored. Just like the strikeouts, the runs scored also exhibit a significant downward trend from 2022 to 2024. These charts collectively suggest a concurrent reduction in both strikeouts and runs scored over the analyzed years, providing insights into the changing dynamics of baseball performance metrics over time.</p>
+                    <iframe src="embed/trend_charts" width="100%" height="600px" style="border: none;"></iframe>
+                </div>
+            </div>
+        </section>
+        <button id="scrollToTopBtn" style="display: none;">Top</button>
+    </main>
+     <!-- Hero Section REMOVE BEFOR SUBMISSION : ADD TO ALL OTHER PAGES. ALREADY IN CSS -->
+     <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Baseball Viz</p>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="{{ base_url }}">Home</a></li>
+                    <li><a href="{{ base_url }}contact">Contact</a></li>
+                    <li><a href="https://www.mlb.com" target="_blank">MLB</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='/navigation.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
+

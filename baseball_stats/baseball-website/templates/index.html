@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Baseball Viz - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playball&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Baseball Viz</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ base_url }}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                    <li><a href="{{ base_url }}run-expectancy" class="{% if request.path == '/run-expectancy' %}active{% endif %}">Run Expectancy</a></li>
+                    <li><a href="{{ base_url }}batting_average" class="{% if request.path == '/batting_average' %}active{% endif %}">Batting Average</a></li>
+                    <li><a href="{{ base_url }}offensive-stats" class="{% if request.path == '/offensive-stats' %}active{% endif %}">Offensive Stats</a></li>
+                    <li><a href="{{ base_url }}pitching-stats" class="{% if request.path == '/pitching-stats' %}active{% endif %}">Pitching Stats</a></li>
+                    <li><a href="{{ base_url }}fastball-velocity" class="{% if request.path == '/fastball-velocity' %}active{% endif %}">Fastball Velocity</a></li>
+                    <li><a href="{{ base_url }}payroll-wins" class="{% if request.path == '/payroll-wins' %}active{% endif %}">Payroll and Wins</a></li>
+                    <li><a href="{{ base_url }}knowledge-base" class="{% if request.path == '/knowledge-base' %}active{% endif %}">Understanding Baseball</a></li>
+                    <li><a href="{{ base_url }}contact" class="{% if request.path == '/contact' %}active{% endif %}">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Move the hero section outside of main -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Baseball Viz</h1>
+                <p>Explore comprehensive baseball statistics through interactive visualizations.</p>
+                <a href="{{ base_url }}run-expectancy" class="cta-button">Explore Visualizations</a>
+            </div>
+        </section>
+        
+        
+        <!-- Main element will be hidden, but hero remains visible 
+        <main class="home-main">
+            <section>
+                <h2>Welcome to Baseball Viz</h2>
+                <p>Explore comprehensive baseball statistics through interactive visualizations. Dive into the data and discover insights on team performance, pitching dynamics, and financial impacts on winning.</p>
+            </section> 
+        </main>
+    </div>-->
+
+    <!-- Wrap the iframe in a div with the class video-container and ensure the iframe has the class video-background. -->
+    <div class="video-container">
+        <iframe class="video-background" src="https://www.youtube.com/embed/hveaVcS_AFQ?autoplay=1&mute=1&controls=0&loop=1&playlist=hveaVcS_AFQ&modestbranding=1&showinfo=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <footer class="main-page-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Baseball Viz</p>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="{{ base_url }}">Home</a></li>
+                    <li><a href="{{ base_url }}contact">Contact</a></li>
+                    <li><a href="https://www.mlb.com" target="_blank">MLB</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    </html>
+    <script src="{{ url_for('static', filename='/navigation.js') }}"></script>
+    <!--SCRIPT TO EXPAND VIDEO-->>
+    <script>
+    function resizeIframe() {
+        var iframe = document.querySelector('.video-background');
+        iframe.style.width = window.innerWidth + 'px';
+        iframe.style.height = window.innerHeight + 'px';
+    }
+
+    window.addEventListener('resize', resizeIframe);
+    resizeIframe();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+</body>
+</html>

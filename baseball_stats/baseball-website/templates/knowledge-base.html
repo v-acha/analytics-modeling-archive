@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Baseball Viz - Baseball Stats Knowledge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playball&display=swap" rel="stylesheet"> <!--Custom Fonts and Typography-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body>
+    <header>
+        <h1>Baseball Viz</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ base_url }}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="{{ base_url }}run-expectancy" class="{% if request.path == '/run-expectancy' %}active{% endif %}">Run Expectancy</a></li>
+                <li><a href="{{ base_url }}batting_average" class="{% if request.path == '/batting_average' %}active{% endif %}">Batting Average</a></li>
+                <li><a href="{{ base_url }}offensive-stats" class="{% if request.path == '/offensive-stats' %}active{% endif %}">Offensive Stats</a></li>
+                <li><a href="{{ base_url }}pitching-stats" class="{% if request.path == '/pitching-stats' %}active{% endif %}">Pitching Stats</a></li>
+                <li><a href="{{ base_url }}fastball-velocity" class="{% if request.path == '/fastball-velocity' %}active{% endif %}">Fastball Velocity</a></li>
+                <li><a href="{{ base_url }}payroll-wins" class="{% if request.path == '/payroll-wins' %}active{% endif %}">Payroll and Wins</a></li>
+                <li><a href="{{ base_url }}knowledge-base" class="{% if request.path == '/knowledge-base' %}active{% endif %}">Understanding Baseball</a></li>
+                <li><a href="{{ base_url }}contact" class="{% if request.path == '/contact' %}active{% endif %}">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <!-- Navigation buttons -->
+            <div class="navigation-buttons">
+                <a href="#" id="prev-button" class="nav-button">Previous</a>
+                <a href="#" id="next-button" class="nav-button">Next</a>
+            </div>
+        <section>
+            <h2>Understanding Baseball Terms & Statistics</h2>
+            <article>
+            
+                <p>Baseball statistics are a great way to analyze the game. Here we provide explanations for various statistics used in our visualizations:</p>
+                <div class='tableauPlaceholder' id='viz1721603957625' style='position: relative'><noscript><a href='#'><img alt='Data Dictionary ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataDictionary_17216038572360&#47;DataDictionary&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DataDictionary_17216038572360&#47;DataDictionary' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataDictionary_17216038572360&#47;DataDictionary&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1721603957625');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='995px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='995px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                <p>For more detailed explanations, visit the <a href="https://www.mlb.com/glossary" target="_blank">MLB Glossary</a>.</p>
+            </article>
+        </section>
+        
+        
+        <button id="scrollToTopBtn" style="display: none;">Top</button>
+    </main>
+     <!-- Hero Section REMOVE BEFOR SUBMISSION : ADD TO ALL OTHER PAGES. ALREADY IN CSS -->
+     <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Baseball Viz</p>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="{{ base_url }}">Home</a></li>
+                    <li><a href="{{ base_url }}contact">Contact</a></li>
+                    <li><a href="https://www.mlb.com" target="_blank">MLB</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='/navigation.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
+

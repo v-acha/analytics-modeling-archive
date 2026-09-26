@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Baseball Viz - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playball&display=swap" rel="stylesheet"> <!-- Custom Fonts and Typography -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon"> <!--adding icon to browser tab-->
+</head>
+<body>
+    <header>
+        <h1>Baseball Viz</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ base_url }}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="{{ base_url }}run-expectancy" class="{% if request.path == '/run-expectancy' %}active{% endif %}">Run Expectancy</a></li>
+                <li><a href="{{ base_url }}batting_average" class="{% if request.path == '/batting_average' %}active{% endif %}">Batting Average</a></li>
+                <li><a href="{{ base_url }}offensive-stats" class="{% if request.path == '/offensive-stats' %}active{% endif %}">Offensive Stats</a></li>
+                <li><a href="{{ base_url }}pitching-stats" class="{% if request.path == '/pitching-stats' %}active{% endif %}">Pitching Stats</a></li>
+                <li><a href="{{ base_url }}fastball-velocity" class="{% if request.path == '/fastball-velocity' %}active{% endif %}">Fastball Velocity</a></li>
+                <li><a href="{{ base_url }}payroll-wins" class="{% if request.path == '/payroll-wins' %}active{% endif %}">Payroll and Wins</a></li>
+                <li><a href="{{ base_url }}knowledge-base" class="{% if request.path == '/knowledge-base' %}active{% endif %}">Understanding Baseball</a></li>
+                <li><a href="{{ base_url }}contact" class="{% if request.path == '/contact' %}active{% endif %}">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <!-- Navigation buttons -->
+            <div class="navigation-buttons">
+                <a href="#" id="prev-button" class="nav-button">Previous</a>
+                <a href="#" id="next-button" class="nav-button">Next</a>
+            </div>
+
+            <!-- About Section -->
+            <section>
+                <h2>About Baseball Viz</h2>
+                <p>Baseball Viz is a platform designed to make baseball statistics easy to understand through interactive visualizations. Built as part of a class project, it offers detailed data on team and player stats, historical data, and advanced metrics. The site features user-friendly tools like customizable dashboards and educational resources to help users explore and appreciate the intricacies of baseball.</p>
+
+                <h3>Our Goal</h3>
+                <p>At Baseball Viz, we believe that data can transform how we experience and understand sports. Our vision is to be the leading resource for baseball statistics, offering intuitive and interactive tools that bring the game’s rich data to life. We strive to empower our users with the information they need to enhance their knowledge and enjoyment of baseball.</p>
+
+                <h3>What You Can Find on Baseball Viz</h3>
+                <h4>1. Comprehensive Data Coverage</h4>
+                <ul>
+                    <li><strong>Team and Player Stats</strong>: Access detailed statistics for teams and players, covering various aspects of the game including batting, pitching, fielding, and more.</li>
+                    <li><strong>Historical Data</strong>: Explore historical data to see how the game and its players have evolved over time.</li>
+                    <li><strong>Advanced Metrics</strong>: Dive into advanced metrics that provide a deeper understanding of player performance and team dynamics.</li>
+                </ul>
+
+                <h4>2. Interactive Visualizations</h4>
+                <ul>
+                    <li><strong>Dynamic Charts and Graphs</strong>: Visualize complex data through interactive charts and graphs that make it easy to identify trends and patterns.</li>
+                    <li><strong>Heatmaps and Scatter Plots</strong>: Utilize heatmaps and scatter plots to analyze performance across different dimensions and variables.</li>
+                    <li><strong>Real-Time Updates</strong>: Get real-time updates on ongoing games and player statistics, ensuring you always have the latest information at your fingertips.</li>
+                </ul>
+
+                <h4>3. Educational Resources</h4>
+                <ul>
+                    <li><strong>Knowledge Base</strong>: Access a comprehensive knowledge base that explains various baseball statistics and metrics, helping you become a more informed fan.</li>
+                    <li><strong>Glossaries and Tutorials</strong>: Learn the terminology and methodologies used in baseball analytics with our detailed glossaries.</li>
+                </ul>
+
+                <h4>4. User-Friendly Interface</h4>
+                <ul>
+                    <li><strong>Customizable Dashboards</strong>: Create personalized dashboards to track your favorite teams and players.</li>
+                    <li><strong>Mobile-Friendly Design</strong>: Enjoy a seamless experience across all devices with our responsive and mobile-friendly design.</li>
+                    <li><strong>Easy Navigation</strong>: Navigate through the platform effortlessly with our intuitive and user-friendly interface.</li>
+                </ul>
+
+                <h3>Where We Get Our Data</h3>
+                <ul>
+                    <li><strong>MLB Statcast (Baseball Savant):</strong> <a href="https://baseballsavant.mlb.com/" target="_blank">https://baseballsavant.mlb.com/</a></li>
+                    <li><strong>API Sports Baseball:</strong> <a href="https://api-sports.io/documentation/baseball/v1" target="_blank">https://api-sports.io/documentation/baseball/v1</a></li>
+                    <li><strong>MLB Stats API (Python Package):</strong> <a href="https://pypi.org/project/MLB-StatsAPI/" target="_blank">https://pypi.org/project/MLB-StatsAPI/</a></li>
+                </ul>
+
+                <h3>Contact Us</h3>
+                <p>We value your feedback and suggestions. If you have any questions, comments, or ideas on how we can improve Baseball Viz, please do not hesitate to contact us.</p>
+
+                <p><strong>Contact Information:</strong></p>
+                <ul>
+                    <li><strong>Email:</strong> support@baseballviz.com</li>
+                </ul>
+
+
+                <p>Together, let's explore the world of baseball statistics and make every game a deeper, more engaging experience!</p>
+            </section>
+        </section>
+        <button id="scrollToTopBtn" style="display: none;">Top</button>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Baseball Viz</p>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="{{ base_url }}">Home</a></li>
+                    <li><a href="{{ base_url }}contact">Contact</a></li>
+                    <li><a href="https://www.mlb.com" target="_blank">MLB</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='/navigation.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
