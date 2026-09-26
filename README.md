@@ -1,6 +1,6 @@
 # Predictive Modeling Archive
 
-Earlier predictive modeling work spanning regression, classification, feature engineering, and model evaluation. The flagship wildfire-risk and bankruptcy-risk projects now live in standalone repositories.
+Earlier data analytics and data science work spanning data cleaning, analytics, dashboarding and modeling.
 
 ## Archived Projects
 
